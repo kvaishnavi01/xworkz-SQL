@@ -59,3 +59,53 @@ ALTER TABLE Products MODIFY cost INT, MODIFY rating VARCHAR(10), MODIFY manufact
 ALTER TABLE Orders MODIFY order_date VARCHAR(20), MODIFY delivery_date VARCHAR(20), MODIFY amount INT, MODIFY status VARCHAR(30);
 ALTER TABLE store_info MODIFY owner_mail VARCHAR(100), MODIFY monthly_income INT, MODIFY floor_no INT, MODIFY monthly_rent INT;
 
+INSERT INTO Customers (customer_id, fname, lname, gender, age, email, contact, membership_level, reg_date, nationality, loyalty_points, dob, occupation)
+VALUES
+(21, 'Ravi', 'Kumar', 'Male', 30, 'ravi.kumar@example.com', '9876543210', 'Gold', '2023-01-15', 'Indian', 1500, '1993-05-20', 'Engineer'),
+(22, 'Anjali', 'Sharma', 'Female', 28, 'anjali.sharma@example.com', '9876543211', 'Silver', '2023-02-10', 'Indian', 1200, '1995-07-12', 'Designer'),
+(23, 'Vikram', 'Singh', 'Male', 35, 'vikram.singh@example.com', '9876543212', 'Platinum', '2023-03-05', 'Indian', 2000, '1988-03-18', 'Manager'),
+(24, 'Priya', 'Mehta', 'Female', 26, 'priya.mehta@example.com', '9876543213', 'Gold', '2023-04-22', 'Indian', 1600, '1997-11-30', 'Analyst'),
+(25, 'Amit', 'Patel', 'Male', 32, 'amit.patel@example.com', '9876543214', 'Silver', '2023-05-18', 'Indian', 1300, '1991-09-25', 'Consultant');
+
+
+INSERT INTO Employees (
+  employee_id, fname, lname, Erole, monthly_salary, email, phone_number, hire_date,
+  store_id, department, shift, dob, bonus
+) 
+VALUES
+(101, 'Suresh', 'Reddy', 'Manager', 60000, 'suresh.reddy@example.com', '9876543215', '2022-06-01', 1, 'Sales', 'Morning', '1985-04-10', 5000),
+(102, 'Neha', 'Verma', 'Cashier', 30000, 'neha.verma@example.com', '9876543216', '2022-07-15', 2, 'Finance', 'Evening', '1990-08-22', 3000),
+(103, 'Arjun', 'Kapoor', 'Stock Manager', 40000, 'arjun.kapoor@example.com', '9876543217', '2022-08-20', 3, 'Inventory', 'Night', '1988-12-05', 4000),
+(104, 'Sneha', 'Gupta', 'Sales Executive', 35000, 'sneha.gupta@example.com', '9876543218', '2022-09-10', 4, 'Sales', 'Morning', '1992-03-14', 3500),
+(105, 'Rahul', 'Joshi', 'HR', 45000, 'rahul.joshi@example.com', '9876543219', '2022-10-05', 5, 'Human Resources', 'Evening', '1987-06-30', 4500);
+
+
+INSERT INTO Products (product_id, pname, brand_name, cost, category, discount_percent, store_id, manufacture_date, expiry_date, origin_country, rating, supplier_name, is_available)
+VALUES
+(201, 'Laptop', 'Dell', 70000, 'Electronics', 10.00, 1, '2023-01-10', '2025-01-10', 'USA', '4.5', 'Tech Supplies Inc.', 'Yes'),
+(202, 'Smartphone', 'Samsung', 50000, 'Electronics', 8.00, 2, '2023-02-15', '2025-02-15', 'South Korea', '4.6', 'Mobile World Ltd.', 'Yes'),
+(203, 'Refrigerator', 'LG', 30000, 'Appliances', 12.00, 3, '2023-03-20', '2028-03-20', 'India', '4.4', 'Home Appliances Co.', 'Yes'),
+(204, 'Washing Machine', 'Whirlpool', 25000, 'Appliances', 15.00, 4, '2023-04-25', '2028-04-25', 'USA', '4.3', 'Appliance Mart', 'Yes'),
+(205, 'Microwave Oven', 'Panasonic', 15000, 'Appliances', 10.00, 5, '2023-05-30', '2028-05-30', 'Japan', '4.7', 'Kitchen Solutions', 'Yes');
+
+INSERT INTO Orders (order_id, product_name, quantity, amount, order_date, payment_method, ord_status, store_id, delivery_date, shipping_address, is_paid, tracking_id, feedback)
+VALUES
+(301, 'Laptop', 1, 63000, '2023-06-01', 'Credit Card', 'Delivered', 1, '2023-06-05', '123 Main St, Bengaluru', 'Yes', 'TRK123456', 'Excellent service'),
+(302, 'Smartphone', 2, 92000, '2023-06-10', 'Debit Card', 'Shipped', 2, '2023-06-15', '456 Park Ave, Bengaluru', 'Yes', 'TRK123457', 'Fast delivery'),
+(303, 'Refrigerator', 1, 26400, '2023-06-15', 'Net Banking', 'Processing', 3, '2023-06-20', '789 Lake Rd, Bengaluru', 'No', 'TRK123458', 'Awaiting delivery'),
+(304, 'Washing Machine', 1, 21250, '2023-06-20', 'UPI', 'Cancelled', 4, '2023-06-25', '321 Hill St, Bengaluru', 'No', 'TRK123459', 'Order cancelled'),
+(305, 'Microwave Oven', 3, 40500, '2023-06-25', 'Cash on Delivery', 'Delivered', 5, '2023-06-30', '654 River Rd, Bengaluru', 'Yes', 'TRK123460', 'Very satisfied');
+
+
+INSERT INTO store_info (
+  id, name, type, owner_mail, monthly_income, sqft, owner_number, floor_no,
+  monthly_rent, opening_hour, closing_hour, store_rating, security_available
+)
+VALUES
+(1, 'Tech Store', 'Electronics', 'owner1@techstore.com', 500000, 2000, 9876543220, 1, 25000, '09:00', '21:00', '4.5', 'Yes'),
+(2, 'Home Needs', 'Appliances', 'owner2@homeneeds.com', 400000, 1800, 9876543221, 2, 20000, '10:00', '22:00', '4.6', 'Yes'),
+(3, 'Gadget World', 'Electronics', 'owner3@gadgetworld.com', 600000, 2200, 9876543222, 3, 30000, '09:30', '21:30', '4.7', 'Yes'),
+(4, 'Appliance Hub', 'Appliances', 'owner4@appliancehub.com', 450000, 1900, 9876543223, 4, 22000, '10:00', '22:00', '4.4', 'Yes'),
+(5, 'Kitchen Corner', 'Appliances', 'owner5@kitchencorner.com', 350000, 1700, 9876543224, 5, 18000, '10:30', '21:00', '4.3', 'Yes');
+
+
