@@ -459,3 +459,81 @@ UPDATE students_info SET age = 22 WHERE id IN (1, 5, 9);
 UPDATE students_info SET age = 19 WHERE id NOT IN (6, 10);
 UPDATE students_info SET grade = 'C' WHERE age BETWEEN 18 AND 20;
 UPDATE students_info SET grade = 'A' WHERE grade NOT BETWEEN 'B' AND 'C';
+
+
+
+
+CREATE TABLE employee (
+  emp_id INT,
+  name VARCHAR(50),
+  age INT,
+  gender VARCHAR(10),
+  department VARCHAR(30),
+  position VARCHAR(30),
+  salary INT,
+  bonus INT,
+  doj DATE,
+  city VARCHAR(30)
+);
+
+
+INSERT INTO employee VALUES
+(1, 'Alice', 28, 'F', 'Engineering', 'Developer', 60000, 5000, '2020-03-10', 'New York'),
+(2, 'Bob', 32, 'M', 'Finance', 'Analyst', 55000, 3000, '2019-07-15', 'Chicago'),
+(3, 'Charlie', 45, 'M', 'HR', 'Manager', 70000, 8000, '2015-11-01', 'Seattle'),
+(4, 'Daisy', 30, 'F', 'Marketing', 'Executive', 50000, 2500, '2021-01-22', 'Austin'),
+(5, 'Evan', 25, 'M', 'Engineering', 'Intern', 35000, 1000, '2023-06-05', 'New York'),
+(6, 'Fiona', 29, 'F', 'Engineering', 'Developer', 62000, 5200, '2020-08-19', 'Boston'),
+(7, 'George', 38, 'M', 'Finance', 'Manager', 75000, 9000, '2012-05-14', 'Chicago'),
+(8, 'Hannah', 26, 'F', 'HR', 'Executive', 48000, 2000, '2018-02-28', 'Seattle'),
+(9, 'Ian', 34, 'M', 'Marketing', 'Manager', 67000, 4000, '2017-09-30', 'Austin'),
+(10, 'Jade', 31, 'F', 'Engineering', 'Lead', 80000, 10000, '2016-04-18', 'New York'),
+(11, 'Kyle', 40, 'M', 'Engineering', 'Architect', 90000, 9500, '2014-03-25', 'Boston'),
+(12, 'Laura', 27, 'F', 'Finance', 'Analyst', 54000, 3100, '2022-12-12', 'Chicago'),
+(13, 'Matt', 36, 'M', 'Engineering', 'Developer', 62000, 5300, '2021-10-05', 'New York'),
+(14, 'Nina', 29, 'F', 'Marketing', 'Executive', 51000, 2600, '2020-06-20', 'Austin'),
+(15, 'Oscar', 50, 'M', 'HR', 'Head', 82000, 10000, '2010-01-01', 'Seattle'),
+(16, 'Paula', 35, 'F', 'Engineering', 'QA Engineer', 58000, 4000, '2019-08-08', 'Boston'),
+(17, 'Quinn', 28, 'M', 'Engineering', 'Support', 45000, 1500, '2023-01-10', 'New York'),
+(18, 'Rachel', 33, 'F', 'Finance', 'Consultant', 60000, 3500, '2018-10-11', 'Chicago'),
+(19, 'Sam', 37, 'M', 'Marketing', 'Manager', 69000, 4100, '2016-07-07', 'Austin'),
+(20, 'Tina', 24, 'F', 'HR', 'Trainee', 40000, 1200, '2023-05-12', 'Seattle'),
+(21, 'Umar', 41, 'M', 'Finance', 'Director', 88000, 10500, '2013-03-18', 'Chicago'),
+(22, 'Vera', 30, 'F', 'Engineering', 'Developer', 61000, 4900, '2020-11-05', 'Boston'),
+(23, 'Will', 27, 'M', 'Marketing', 'Executive', 52000, 2700, '2022-01-15', 'Austin'),
+(24, 'Xena', 42, 'F', 'HR', 'Manager', 71000, 8100, '2011-12-01', 'Seattle'),
+(25, 'Yash', 39, 'M', 'Engineering', 'Tech Lead', 85000, 9800, '2015-05-19', 'New York'),
+(26, 'Zara', 33, 'F', 'Finance', 'Analyst', 56000, 3200, '2020-02-29', 'Chicago'),
+(27, 'Ayaan', 35, 'M', 'Engineering', 'DevOps', 65000, 4700, '2019-09-23', 'Boston'),
+(28, 'Bella', 28, 'F', 'Marketing', 'Executive', 53000, 2800, '2021-03-30', 'Austin'),
+(29, 'Chetan', 45, 'M', 'Finance', 'Manager', 77000, 8700, '2011-04-17', 'Chicago'),
+(30, 'Diya', 31, 'F', 'HR', 'Coordinator', 49000, 1800, '2019-01-10', 'Seattle');
+
+SELECT department,max(salary) FROM employee;
+
+
+
+SELECT COUNT(*) as no_of_rows FROM employee;
+SELECT SUM(salary) as total_sal FROM employee;
+SELECT MAX(age) as max_age FROM employee;
+SELECT MAX(salary) as max_sal FROM employee;
+SELECT MIN(salary) as min_sal FROM employee;
+SELECT AVG(salary) as avg_sal FROM employee;
+SELECT * FROM employee;
+SELECT MAX(salary) as max_sal FROM employee
+WHERE department = 'Engineering';
+SELECT SUM(salary) as total_sal FROM employee
+WHERE department = 'Finance';
+SELECT MAX(bonus) as max_bonus FROM employee
+WHERE department = 'HR';
+SELECT MIN(bonus) as min_bonus FROM employee
+WHERE department = 'Marketing';
+
+
+SELECT department, COUNT(department) FROM employee GROUP BY department;
+SELECT department, SUM(salary) FROM employee GROUP BY department;
+SELECT department, MIN(bonus) as min_bonus FROM employee GROUP BY department;
+SELECT department, MIN(bonus) as min_bonus FROM employee
+GROUP BY department HAVING MIN(bonus) > 3000;
+
+
